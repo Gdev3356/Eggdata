@@ -1,9 +1,19 @@
 package com.eggman.empire.eggdata.repositories;
 
 import com.eggman.empire.eggdata.models.User;
+import com.eggman.empire.eggdata.models.UserSummary;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
+@Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    boolean existsByEmail(String email);
-    boolean existsByEmailAndIdNot(String email, Long id);
+
+    Optional<User> findByUserName(String userName);
+
+    boolean existsByUserName(String userName);
+
+    List<UserSummary> findAllProjectedBy();
 }

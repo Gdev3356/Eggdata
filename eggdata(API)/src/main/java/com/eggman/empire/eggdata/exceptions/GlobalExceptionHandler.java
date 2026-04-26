@@ -1,6 +1,7 @@
 package com.eggman.empire.eggdata.exceptions;
 
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
+import com.eggman.empire.eggdata.exceptions.ResourceNotFoundException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -21,11 +22,12 @@ public class GlobalExceptionHandler {
 
   @ExceptionHandler(BusinessException.class)
   public ResponseEntity<Map<String, Object>> handleBusiness(BusinessException ex) {
-    return buildResponse(HttpStatus.UNPROCESSABLE_CONTENT, ex.getMessage());
+    return buildResponse(HttpStatus.UNPROCESSABLE_ENTITY, ex.getMessage());
   }
 
-  @ExceptionHandler(DuplicateEmailException.class)
-  public ResponseEntity<Map<String, Object>> handleDuplicateEmail(DuplicateEmailException ex) {
+
+  @ExceptionHandler(DuplicateUserNameException.class)
+  public ResponseEntity<Map<String, Object>> handleDuplicateUserName(DuplicateUserNameException ex) {
     return buildResponse(HttpStatus.CONFLICT, ex.getMessage());
   }
 
