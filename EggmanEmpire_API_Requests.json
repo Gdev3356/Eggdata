@@ -1,0 +1,43 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-04-26",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "req_1",
+      "parentId": "wrk_1",
+      "modified": 1682547000000,
+      "created": 1682547000000,
+      "url": "http://localhost:8080/plans",
+      "name": "Listar Planos (Requer Rank)",
+      "method": "GET",
+      "headers": [
+        {
+          "name": "X-User-Id",
+          "value": "1",
+          "description": "ID do Dr. Eggman (Mestre)"
+        }
+      ],
+      "body": {},
+      "parameters": [
+        { "name": "page", "value": "0" },
+        { "name": "size", "value": "10" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_2",
+      "parentId": "wrk_1",
+      "url": "http://localhost:8080/plans",
+      "name": "Criar Novo Plano Maligno",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"codeName\": \"Projeto Metal\",\n  \"description\": \"Construir uma réplica metálica do ouriço.\",\n  \"rank\": \"EGG-MASTER\",\n  \"creator\": { \"id\": 1 },\n  \"targets\": [{ \"id\": 1 }]\n}"
+      },
+      "headers": [],
+      "_type": "request"
+    }
+  ]
+}

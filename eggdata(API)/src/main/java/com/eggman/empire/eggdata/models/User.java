@@ -1,7 +1,10 @@
 package com.eggman.empire.eggdata.models;
 
+import com.eggman.empire.eggdata.models.enums.UserRank;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,11 +29,14 @@ public class User {
     @NotBlank(message = "A senha não pode estar em branco.")
     @Size(min = 6, message = "Sua senha precisa ter pelo menos 6 caracteres.")
     @Column(nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-    @NotBlank(message = "Selecione um rank para o usuário.")
+    @NotNull(message = "Selecione um rank para o usuário.") // Enum usa NotNull em vez de NotBlank
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String rank;
+    private UserRank rank;
 
+    @Column(updatable = false)
     private LocalDate creationDate = LocalDate.now();
 }

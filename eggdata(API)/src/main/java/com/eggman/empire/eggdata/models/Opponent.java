@@ -1,5 +1,6 @@
 package com.eggman.empire.eggdata.models;
 
+import com.eggman.empire.eggdata.models.enums.OpponentStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -42,6 +43,10 @@ public class Opponent {
     private String friends;
 
     private String weakness;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private OpponentStatus status = OpponentStatus.DESCONHECIDO; // Valor padrão
 
     @Column(nullable = false)
     private LocalDate registerDate = LocalDate.now();
