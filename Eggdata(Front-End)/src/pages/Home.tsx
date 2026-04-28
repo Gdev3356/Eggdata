@@ -32,8 +32,8 @@ useEffect(() => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex flex-col">
-      <nav className="bg-black border-b-2 border-red-900 p-4 flex justify-between items-center shadow-lg">
+    <div className="h-screen bg-[#0a0a0a] flex flex-col overflow-hidden">
+      <nav className="shrink-0 bg-black border-b-2 border-red-900 p-4 flex justify-between items-center shadow-lg z-10">
         <h2 className="sonic-title text-2xl text-red-600 tracking-tighter">EGG-COMMAND</h2>
         <div className="flex items-center gap-4">
           <span className="sonic-ui text-[10px] text-yellow-500 border border-yellow-500 px-2 py-1 rounded">
@@ -44,36 +44,43 @@ useEffect(() => {
           </button>
         </div>
       </nav>
-
-      <main className="p-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="bg-[#111] p-6 rounded-lg border-b-4 border-blue-600">
-            <h3 className="sonic-ui text-blue-500 text-sm mb-4">ACTIVE TARGETS</h3>
-              <div className="flex justify-between items-end">
-                <div className="sonic-ui text-5xl font-bold italic">{stats.opponents}</div>
-                  <div className="text-right">
-                    {recentOpponents.slice(0, 2).map(opp => (
-                        <p key={opp.id} className="text-[8px] text-blue-400 sonic-ui uppercase tracking-tighter">
-                        {opp.name} - DETECTED
-                        </p>
-                    ))}
-                </div>
+      <main className="flex-1 overflow-y-auto p-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-[#111] p-6 rounded-lg border-b-4 border-blue-600 shadow-[0_10px_30px_rgba(37,99,235,0.1)]">
+            <h3 className="sonic-ui text-blue-500 text-sm mb-4 tracking-widest uppercase">Active Targets</h3>
+            <div className="flex justify-between items-end">
+              <div className="sonic-ui text-6xl font-bold italic text-white">{stats.opponents}</div>
+              <div className="text-right pb-1">
+                {recentOpponents.map(opp => (
+                  <p key={opp.id} className="text-[9px] text-blue-400 sonic-ui uppercase tracking-tighter leading-tight">
+                    {opp.name} <span className="animate-pulse">_DETECTED</span>
+                  </p>
+                ))}
+              </div>
             </div>
-          <p className="text-gray-500 sonic-ui text-[10px] mt-2 uppercase tracking-widest">Resistance identified</p>
+            <p className="text-gray-600 sonic-ui text-[9px] mt-4 uppercase tracking-[0.3em]">Resistance Identified</p>
+          </div>
+          <div className="bg-[#111] p-6 rounded-lg border-b-4 border-red-600 shadow-[0_10px_30px_rgba(220,38,38,0.1)]">
+            <h3 className="sonic-ui text-red-600 text-sm mb-4 tracking-widest uppercase">Operations</h3>
+            <div className="sonic-ui text-6xl font-bold italic text-white">{stats.plans}</div>
+            <p className="text-gray-600 sonic-ui text-[9px] mt-4 uppercase tracking-[0.3em]">Domination plans in progress</p>
+          </div>
+          {canRegister && (
+            <button className="bg-gradient-to-br from-yellow-600 to-yellow-800 p-6 rounded-lg border-b-4 border-yellow-900 text-left hover:brightness-110 active:scale-95 transition-all group relative overflow-hidden">
+               <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+               <h3 className="sonic-ui text-yellow-100 text-sm mb-4 tracking-widest uppercase">Recruitment</h3>
+               <div className="text-xl sonic-ui font-black uppercase text-white group-hover:translate-x-2 transition-transform italic">
+                 New Personnel →
+               </div>
+            </button>
+          )}
         </div>
-
-        <div className="bg-[#111] p-6 rounded-lg border-b-4 border-red-600">
-          <h3 className="sonic-ui text-red-600 text-sm mb-4">OPERATIONS</h3>
-          <div className="sonic-ui text-5xl font-bold italic">{stats.plans}</div>
-          <p className="text-gray-500 sonic-ui text-[10px] mt-2 uppercase tracking-widest">Domination plans in progress</p>
-        </div>
-
-        {canRegister && (
-          <button className="bg-linear-to-r from-yellow-600 to-yellow-800 p-6 rounded-lg border-b-4 border-yellow-900 text-left hover:brightness-125 transition-all group">
-            <h3 className="sonic-ui text-white text-sm mb-4">RECRUITMENT</h3>
-            <div className="text-xl sonic-ui font-bold uppercase group-hover:translate-x-2 transition-transform underline">New Personnel →</div>
-          </button>
-        )}
       </main>
+      <footer className="shrink-0 p-4 border-t border-white/5 bg-black/40 backdrop-blur-md">
+        <p className="sonic-ui text-[8px] text-center text-gray-500 tracking-[1em] uppercase">
+          EGG-DATA OS V.2.0.26 ALPHA - NO UNAUTHORIZED ACCESS
+        </p>
+      </footer>
     </div>
   );
 };
