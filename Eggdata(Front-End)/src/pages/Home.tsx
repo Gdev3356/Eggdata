@@ -1,26 +1,33 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import api from '../services/api';
+import type { Opponent } from '../types/opponents';
 
 export const Home = () => {
   const { user, canRegister, logout } = useAuth();
   const [stats, setStats] = useState({ opponents: 0, plans: 0 });
+  const [recentOpponents, setRecentOpponents] = useState<Opponent[]>([]);
 
-  useEffect(() => {
+useEffect(() => {
     const fetchDashboardData = async () => {
       try {
         const [oppResponse, planResponse] = await Promise.all([
-          api.get('/opponents?size=1'),
+          api.get('/opponents?size=3&sort=id,desc'),
           api.get('/plans?size=1')
         ]);
+
         setStats({
           opponents: oppResponse.data.totalElements,
           plans: planResponse.data.totalElements
         });
+
+        setRecentOpponents(oppResponse.data.content || oppResponse.data);
+        
       } catch (err) {
         console.error("Failed to sync with Egg-Net", err);
       }
     };
+    
     fetchDashboardData();
   }, []);
 
@@ -40,8 +47,17 @@ export const Home = () => {
 
       <main className="p-10 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="bg-[#111] p-6 rounded-lg border-b-4 border-blue-600">
-          <h3 className="sonic-ui text-blue-500 text-sm mb-4">ACTIVE TARGETS</h3>
-          <div className="sonic-ui text-5xl font-bold italic">{stats.opponents}</div>
+            <h3 className="sonic-ui text-blue-500 text-sm mb-4">ACTIVE TARGETS</h3>
+              <div className="flex justify-between items-end">
+                <div className="sonic-ui text-5xl font-bold italic">{stats.opponents}</div>
+                  <div className="text-right">
+                    {recentOpponents.slice(0, 2).map(opp => (
+                        <p key={opp.id} className="text-[8px] text-blue-400 sonic-ui uppercase tracking-tighter">
+                        {opp.name} - DETECTED
+                        </p>
+                    ))}
+                </div>
+            </div>
           <p className="text-gray-500 sonic-ui text-[10px] mt-2 uppercase tracking-widest">Resistance identified</p>
         </div>
 
