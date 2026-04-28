@@ -46,7 +46,7 @@ public class Opponent {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private OpponentStatus status = OpponentStatus.DESCONHECIDO; // Valor padrão
+    private OpponentStatus status = OpponentStatus.UNKNOWN; // Valor padrão
 
     @Column(nullable = false)
     private LocalDate registerDate = LocalDate.now();

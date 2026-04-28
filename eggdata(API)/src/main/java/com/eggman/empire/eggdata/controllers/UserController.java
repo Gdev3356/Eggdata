@@ -1,6 +1,7 @@
 package com.eggman.empire.eggdata.controllers;
 
 import com.eggman.empire.eggdata.models.User;
+import com.eggman.empire.eggdata.repositories.UserRepository;
 import com.eggman.empire.eggdata.services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserService userService;
+    private final UserRepository userRepository;
 
     @GetMapping
     public ResponseEntity<Page<User>> getAll(
@@ -45,4 +47,16 @@ public class UserController {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<User> login(@RequestBody java.util.Map<String, String> credentials) {
+        String userName = credentials.get("userName");
+        String password = credentials.get("password");
+
+        return userRepository.findByUserName(userName)
+                .filter(user -> user.getPassword().equals(password))
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+    }
+
 }

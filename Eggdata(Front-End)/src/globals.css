@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400&family=Outfit:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Sonic Advanced 2';
+  src: url('/assets/fonts/Sonic Advanced 2.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sonic Title Card Lowercase';
+  src: url('/assets/fonts/sonic-title-card-lowercase.otf') format('opentype');
+}
+
+@theme {
+  --color-eggman-red: #d10000;
+  --color-eggman-yellow: #ffcc00;
+  --color-eggman-dark: #1a1a1a;
+  --color-app-bg: #0a0a0a;
+  
+  --font-sonic-title: "Sonic Title Card Lowercase", sans-serif;
+  --font-sonic-ui: "Sonic Advanced 2", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+}
+
+body {
+  @apply bg-app-bg text-white font-outfit;
+}
+
+.sonic-title {
+  @apply font-sonic-title;
+}
+
+.sonic-ui {
+  @apply font-sonic-ui;
+}
+
+@layer utilities {
+  @keyframes scanline-fade-in {
+    from { opacity: 0; transform: translateY(10px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes scanline-fade-out {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(10px) scale(0.95); }
+  }
+
+  .animate-egg-in {
+    animation: scanline-fade-in 0.2s ease-out forwards;
+  }
+
+  .animate-egg-out {
+    animation: scanline-fade-out 0.15s ease-in forwards;
+  }
+}

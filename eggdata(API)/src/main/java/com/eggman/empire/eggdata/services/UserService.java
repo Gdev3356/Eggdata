@@ -51,4 +51,10 @@ public class UserService {
                 () -> new ResourceNotFoundException("Usuário com id " + id + " não foi encontrado na base de dados do Império.")
         );
     }
+
+    public User authenticate(String userName, String password) {
+        return userRepository.findByUserName(userName)
+                .filter(user -> user.getPassword().equals(password)) // In production, use BCrypt!
+                .orElseThrow(() -> new RuntimeException("Invalid credentials"));
+    }
 }
