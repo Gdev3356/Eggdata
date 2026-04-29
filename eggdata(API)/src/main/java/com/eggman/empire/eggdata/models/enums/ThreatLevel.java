@@ -1,8 +1,9 @@
 package com.eggman.empire.eggdata.models.enums;
 
-public enum OpponentStatus {
-    UNKNOWN,
-    ALIVE,
-    ELIMINATED,
-    CAPTURED
+public enum ThreatLevel {
+    EXTREME,
+    SERIOUS,
+    NUISANCE,
+    MINOR,
+    UNKNOWN
 }

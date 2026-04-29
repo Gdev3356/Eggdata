@@ -48,6 +48,14 @@ public class OpponentController {
         return ResponseEntity.ok(opponentService.changeStatus(id, cleanStatus));
     }
 
+    @PatchMapping("/{id}/level")
+    public ResponseEntity<Opponent> updateLevel(
+            @PathVariable Long id,
+            @RequestBody String newLevel) {
+        String cleanLevel = newLevel.replace("\"", "");
+        return ResponseEntity.ok(opponentService.changeLevel(id, cleanLevel));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         opponentService.deleteOpponent(id);

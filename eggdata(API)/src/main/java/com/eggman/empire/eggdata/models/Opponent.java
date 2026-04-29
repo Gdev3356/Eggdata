@@ -1,6 +1,7 @@
 package com.eggman.empire.eggdata.models;
 
 import com.eggman.empire.eggdata.models.enums.OpponentStatus;
+import com.eggman.empire.eggdata.models.enums.ThreatLevel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -19,6 +20,10 @@ public class Opponent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private ThreatLevel level = ThreatLevel.UNKNOWN;
 
     @NotBlank(message = "O nome do alvo/oponente é obrigatório para os registros do Império.")
     @Column(nullable = false)

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Opponent, OpponentStatus } from '../../types/opponents';
+import type { Opponent, OpponentLevel, OpponentStatus } from '../../types/opponents';
 
 interface FormProps {
   mode: 'ADD' | 'EDIT';
@@ -18,7 +18,9 @@ export const OpponentForm = ({ mode, initialData, onClose, onSave }: FormProps) 
     weakness: '',
     age: 0,
     personality: '',
-    friends: ''
+    friends: '',
+    gender: 'UNKNOWN',
+    level: 'UNKNOWN' as OpponentLevel,
   });
 
   const handleClose = () => {
@@ -81,12 +83,55 @@ export const OpponentForm = ({ mode, initialData, onClose, onSave }: FormProps) 
             </select>
           </div>
 
+          <div>
+            <label className={labelStyle}>Threat Level</label>
+            <select 
+              className={inputStyle}
+              value={formData.level}
+              onChange={(e) => setFormData({...formData, level: e.target.value as OpponentLevel})}
+            >
+              <option value="EXTREME">EXTREME</option>
+              <option value="SERIOUS">SERIOUS</option>
+              <option value="NUISANCE">NUISANCE</option>
+              <option value="MINOR">MINOR</option>
+              <option value="UNKNOWN">UNKNOWN</option>
+            </select>
+          </div>
+
           <div className="col-span-2">
             <label className={labelStyle}>Abilities Assessment</label>
             <textarea 
               className={`${inputStyle} h-20 resize-none`}
               value={formData.powers}
               onChange={(e) => setFormData({...formData, powers: e.target.value})}
+            />
+          </div>
+
+          <div>
+            <label className={labelStyle}>Subject Age</label>
+            <input 
+              type="number"
+              className={inputStyle}
+              value={formData.age}
+              onChange={(e) => setFormData({...formData, age: parseInt(e.target.value) || 0})}
+            />
+          </div>
+
+         <div>
+            <label className={labelStyle}>Gender</label>
+            <input 
+              className={inputStyle}
+              value={formData.gender}
+              onChange={(e) => setFormData({...formData, gender: e.target.value})}
+            />
+          </div>
+
+          <div className="col-span-2">
+            <label className={labelStyle}>Subject Weaknesses</label>
+            <input 
+              className={inputStyle}
+              value={formData.weakness}
+              onChange={(e) => setFormData({...formData, weakness: e.target.value})}
             />
           </div>
         </div>

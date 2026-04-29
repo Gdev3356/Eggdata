@@ -4,6 +4,7 @@ import com.eggman.empire.eggdata.exceptions.BusinessException;
 import com.eggman.empire.eggdata.exceptions.ResourceNotFoundException;
 import com.eggman.empire.eggdata.models.Opponent;
 import com.eggman.empire.eggdata.models.enums.OpponentStatus;
+import com.eggman.empire.eggdata.models.enums.ThreatLevel;
 import com.eggman.empire.eggdata.repositories.OpponentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -55,6 +56,16 @@ public class OpponentService {
 
         // Converte a String para o Enum (dispara erro se o status for inválido)
         opponent.setStatus(OpponentStatus.valueOf(statusName.toUpperCase()));
+
+        return opponentRepository.save(opponent);
+    }
+
+    public Opponent changeLevel(Long id, String levelName) {
+        Opponent opponent = opponentRepository.findById(id)
+                .orElseThrow(() -> new BusinessException("Oponente não encontrado."));
+
+        // Converte a String para o Enum (dispara erro se o nível for inválido)
+        opponent.setLevel(ThreatLevel.valueOf(levelName.toUpperCase()));
 
         return opponentRepository.save(opponent);
     }

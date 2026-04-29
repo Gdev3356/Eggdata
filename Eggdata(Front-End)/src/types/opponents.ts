@@ -1,5 +1,6 @@
 export type OpponentStatus = 'UNKNOWN' | 'ALIVE' | 'ELIMINATED' | 'CAPTURED';
 
+export type OpponentLevel  = 'UNKNOWN' | 'MINOR' | 'NUISANCE' | 'SERIOUS' |'EXTREME';
 export interface Opponent {
   id: number;
   name: string;
@@ -11,4 +12,5 @@ export interface Opponent {
   status: OpponentStatus;
   personality: string;
   friends: string;
+  level: OpponentLevel;
 }

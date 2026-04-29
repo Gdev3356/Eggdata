@@ -30,7 +30,7 @@ export const TargetDossier = ({ opponent, isExiting, onClose, onEdit, onDelete, 
           <h3 className="sonic-ui text-xl text-white tracking-widest uppercase relative z-10">
             Target_Dossier: <span className="text-red-500 font-black">{opponent.name}</span>
           </h3>
-          <button onClick={onClose} className="text-red-600 sonic-title hover:text-white text-2xl font-black relative z-10">×</button>
+          <button onClick={onClose} className="text-red-600 sonic-ui hover:text-white text-2xl font-black relative z-10">×</button>
         </div>
 
         <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -40,9 +40,10 @@ export const TargetDossier = ({ opponent, isExiting, onClose, onEdit, onDelete, 
               {getStatusIcon(opponent.status)}
             </div>
             <div className="w-full space-y-3 relative z-10 border-t border-white/5 pt-4">
-               <p className="sonic-ui text-[9px] text-gray-500 uppercase flex justify-between">Threat: <span className="text-red-500 font-bold">EXTREME</span></p>
+               <p className="sonic-ui text-[9px] text-gray-500 uppercase flex justify-between">Threat: <span className="text-red-500 font-bold">{opponent.level}</span></p>
                <p className="sonic-ui text-[9px] text-gray-500 uppercase flex justify-between">Origin: <span className="text-white">{opponent.species}</span></p>
                <p className="sonic-ui text-[9px] text-gray-500 uppercase flex justify-between">Bio_Age: <span className="text-white">{opponent.age} cycles</span></p>
+               <p className="sonic-ui text-[9px] text-gray-500 uppercase flex justify-between">Bio_Age: <span className="text-white">{opponent.gender} bio</span></p>
             </div>
           </div>
 
