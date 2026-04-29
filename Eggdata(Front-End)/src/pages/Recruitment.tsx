@@ -30,7 +30,6 @@ export const Recruitment = () => {
       
     } catch (err: any) {
       setStatus('error');
-      // Tenta pegar a mensagem de erro que vem do seu GlobalExceptionHandler do Java
       setErrorMessage(
         err.response?.data?.error || 
         'ERRO DE CONEXÃO COM A EGG-NET. TENTE NOVAMENTE.'
@@ -53,7 +52,6 @@ export const Recruitment = () => {
         <form onSubmit={handleSubmit} className="bg-[#111] p-8 rounded-lg border border-white/10 shadow-[0_10px_30px_rgba(202,138,4,0.05)]">
           
           <div className="space-y-6">
-            {/* User Name */}
             <div>
               <label className="block sonic-ui text-yellow-600 text-[10px] tracking-widest uppercase mb-2">
                 Operative Codename
@@ -83,8 +81,6 @@ export const Recruitment = () => {
                 placeholder="Minimum 6 characters"
               />
             </div>
-
-            {/* Rank Selection */}
             <div>
               <label className="block sonic-ui text-yellow-600 text-[10px] tracking-widest uppercase mb-2">
                 Assigned Rank
@@ -102,8 +98,6 @@ export const Recruitment = () => {
               </select>
             </div>
           </div>
-
-          {/* Feedback Messages */}
           {status === 'success' && (
             <div className="mt-6 p-3 bg-green-900/30 border border-green-500 text-green-400 sonic-ui text-xs text-center uppercase">
               Operative successfully registered to Egg-Net!
@@ -115,8 +109,6 @@ export const Recruitment = () => {
               {errorMessage}
             </div>
           )}
-
-          {/* Submit Buttons */}
           <div className="mt-10 flex gap-4">
             <button
               type="submit"
