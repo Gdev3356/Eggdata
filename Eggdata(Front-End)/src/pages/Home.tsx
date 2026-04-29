@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import api from '../services/api';
 import type { Opponent } from '../types/opponents';
+import { useNavigate } from 'react-router-dom';
 
 export const Home = () => {
   const { user, canRegister, logout } = useAuth();
   const [stats, setStats] = useState({ opponents: 0, plans: 0 });
   const [recentOpponents, setRecentOpponents] = useState<Opponent[]>([]);
-
-useEffect(() => {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
     const fetchDashboardData = async () => {
       try {
         const [oppResponse, planResponse] = await Promise.all([
@@ -65,8 +67,12 @@ useEffect(() => {
             <div className="sonic-ui text-6xl font-bold italic text-white">{stats.plans}</div>
             <p className="text-gray-600 sonic-ui text-[9px] mt-4 uppercase tracking-[0.3em]">Domination plans in progress</p>
           </div>
+          
           {canRegister && (
-            <button className="bg-gradient-to-br from-yellow-600 to-yellow-800 p-6 rounded-lg border-b-4 border-yellow-900 text-left hover:brightness-110 active:scale-95 transition-all group relative overflow-hidden">
+            <button 
+              onClick={() => navigate('/users')}
+              className="bg-gradient-to-br from-yellow-600 to-yellow-800 p-6 rounded-lg border-b-4 border-yellow-900 text-left hover:brightness-110 active:scale-95 transition-all group relative overflow-hidden"
+            >
                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                <h3 className="sonic-ui text-yellow-100 text-sm mb-4 tracking-widest uppercase">Recruitment</h3>
                <div className="text-xl sonic-ui font-black uppercase text-white group-hover:translate-x-2 transition-transform italic">
@@ -74,6 +80,7 @@ useEffect(() => {
                </div>
             </button>
           )}
+          
         </div>
       </main>
        <footer className="shrink-0 p-4 border-t border-white/5 bg-black/40 backdrop-blur-md">

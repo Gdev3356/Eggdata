@@ -6,6 +6,7 @@ import { Login } from './pages/Login';
 import { Home } from './pages/Home';
 import { Opponents } from './pages/Opponents';
 import { Plans } from './pages/Plans';
+import { Recruitment } from './pages/Recruitment';
 
 const Placeholder = ({ title }: { title: string }) => (
   <div className="text-gray-500 sonic-ui text-sm italic">SYSTEM FILE "{title}" IS ENCRYPTED. PENDING BACKEND SYNC...</div>
@@ -26,7 +27,8 @@ function App() {
             <Route index element={<Home />} />
             <Route path="opponents" element={<Opponents/>} />
             <Route path="plans" element={<Plans/>} />
-            <Route path="users" element={<Placeholder title="USER_MANAGEMENT" />} />
+
+            <Route path="users" element={<Recruitment />} />
           </Route>
 
           {/* Catch-all redirect */}

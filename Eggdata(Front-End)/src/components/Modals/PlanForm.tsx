@@ -53,7 +53,7 @@ export const PlanForm = ({ mode, initialData, onClose, onSave }: PlanFormProps) 
   const handleInternalSave = () => {
     const finalData = {
       ...formData,
-      creator: mode === 'ADD' ? { id: user?.id } : formData.creator
+      creator: mode === 'ADD' ? { id: user?.id as number } : formData.creator
     };
     onSave(finalData);
   };
