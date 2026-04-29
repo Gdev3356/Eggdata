@@ -32,8 +32,8 @@ useEffect(() => {
   }, []);
 
   return (
-    <div className="h-screen bg-[#0a0a0a] flex flex-col overflow-hidden">
-      <nav className="shrink-0 bg-black border-b-2 border-red-900 p-4 flex justify-between items-center shadow-lg z-10">
+    <div className="flex flex-col h-full w-full overflow-hidden">
+      <nav className="shrink-0 bg-black border-b-2 border-red-900 p-4 flex justify-between items-center z-10">
         <h2 className="sonic-title text-2xl text-red-600 tracking-tighter">EGG-COMMAND</h2>
         <div className="flex items-center gap-4">
           <span className="sonic-ui text-[10px] text-yellow-500 border border-yellow-500 px-2 py-1 rounded">
@@ -44,7 +44,7 @@ useEffect(() => {
           </button>
         </div>
       </nav>
-      <main className="flex-1 overflow-y-auto p-10">
+      <main className="flex-1 overflow-y-auto p-10 custom-scrollbar">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-[#111] p-6 rounded-lg border-b-4 border-blue-600 shadow-[0_10px_30px_rgba(37,99,235,0.1)]">
             <h3 className="sonic-ui text-blue-500 text-sm mb-4 tracking-widest uppercase">Active Targets</h3>
@@ -76,9 +76,9 @@ useEffect(() => {
           )}
         </div>
       </main>
-      <footer className="shrink-0 p-4 border-t border-white/5 bg-black/40 backdrop-blur-md">
+       <footer className="shrink-0 p-4 border-t border-white/5 bg-black/40 backdrop-blur-md">
         <p className="sonic-ui text-[8px] text-center text-gray-500 tracking-[1em] uppercase">
-          EGG-DATA OS V.2.0.26 ALPHA - NO UNAUTHORIZED ACCESS
+          EGG-DATA OS V.2.0.26 ALPHA
         </p>
       </footer>
     </div>

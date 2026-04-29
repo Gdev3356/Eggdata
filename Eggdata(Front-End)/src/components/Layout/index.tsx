@@ -81,10 +81,8 @@ export const Layout = () => {
         </div>
       </aside>
 
-      <main className="flex-1 overflow-y-auto">
-        <div className="p-8">
-          <Outlet />
-        </div>
+      <main className="flex-1 h-full overflow-hidden">
+        <Outlet />
       </main>
     </div>
   );

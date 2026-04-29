@@ -22,6 +22,20 @@
   --font-outfit: "Outfit", sans-serif;
 }
 
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden; /* Impede scroll horizontal indesejado */
+  }
+}
+
 body {
   @apply bg-app-bg text-white font-outfit;
 }
