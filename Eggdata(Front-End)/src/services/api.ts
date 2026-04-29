@@ -7,7 +7,6 @@ const api = axios.create({
   },
 });
 
-// Interceptor to automatically add the User ID header if logged in
 api.interceptors.request.use((config) => {
   const savedUser = localStorage.getItem('eggData_user');
   if (savedUser) {

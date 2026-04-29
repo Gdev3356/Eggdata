@@ -5,6 +5,7 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import { Login } from './pages/Login';
 import { Home } from './pages/Home';
 import { Opponents } from './pages/Opponents';
+import { Plans } from './pages/Plans';
 
 const Placeholder = ({ title }: { title: string }) => (
   <div className="text-gray-500 sonic-ui text-sm italic">SYSTEM FILE "{title}" IS ENCRYPTED. PENDING BACKEND SYNC...</div>
@@ -24,7 +25,7 @@ function App() {
           }>
             <Route index element={<Home />} />
             <Route path="opponents" element={<Opponents/>} />
-            <Route path="plans" element={<Placeholder title="PLANS" />} />
+            <Route path="plans" element={<Plans/>} />
             <Route path="users" element={<Placeholder title="USER_MANAGEMENT" />} />
           </Route>
 
