@@ -1,0 +1,519 @@
+type: collection.insomnia.rest/5.0
+name: EggmanEmpire_API_Requests
+meta:
+  id: wrk_475324b5b1024d08bdba21f1637d4a6e
+  created: 1777547057054
+  modified: 1777547057054
+collection:
+  - url: http://localhost:8080/users
+    name: Buscar todos os usuários
+    meta:
+      id: req_ae2461d2c5b349429c33aa555bad9107
+      created: 1777547062286
+      modified: 1777547286742
+      isPrivate: false
+      sortKey: -1777547248100
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/1
+    name: Buscar um usuário em específico (Eggman)
+    meta:
+      id: req_b1ef39d7740240639c5ad074afd33fe8
+      created: 1777547248300
+      modified: 1777547372634
+      isPrivate: false
+      sortKey: -1777547248050
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users
+    name: Criar um novo usuário (Requer autorização)
+    meta:
+      id: req_a53e8427549b41a0adea9850295bee05
+      created: 1777547280031
+      modified: 1777547475153
+      isPrivate: false
+      sortKey: -1777547248000
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"userName": "metal_sonic",
+        	"password": "THE_REAL_SONIC",
+        	"rank": "ROBOT"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_a97fec7814ae441b92e56fe72ff58abf
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_2218e9263cbb445dad71108e03b4e9c6
+      - id: pair_4c96592e527640d69ec571d5f340c34e
+        name: X-User-Id
+        value: "1"
+        description: ID do Dr.Eggman
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/2
+    name: Atualizar dados de um usuário (Requer autorização)
+    meta:
+      id: req_262ba8a61a0542fdb7e0d946287585d4
+      created: 1777547428468
+      modified: 1777547504813
+      isPrivate: false
+      sortKey: -1777547247950
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"userName": "metal_sonic",
+        	"password": "THE_REAL_SONIC",
+        	"rank": "GENERAL"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_a97fec7814ae441b92e56fe72ff58abf
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_2218e9263cbb445dad71108e03b4e9c6
+      - id: pair_4c96592e527640d69ec571d5f340c34e
+        name: X-User-Id
+        value: "1"
+        description: ID do Dr.Eggman
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/2
+    name: Deletar um usuário (Requer autorização)
+    meta:
+      id: req_9bee84caf63942c1ae7f0d30b8a3af27
+      created: 1777547490848
+      modified: 1777547512041
+      isPrivate: false
+      sortKey: -1777547247900
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_2218e9263cbb445dad71108e03b4e9c6
+      - id: pair_4c96592e527640d69ec571d5f340c34e
+        name: X-User-Id
+        value: "1"
+        description: ID do Dr.Eggman
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/plans
+    name: Buscar todos os planos (Requer autorização)
+    meta:
+      id: req_5ed799b48fb74715a87b4215e203505e
+      created: 1777547515289
+      modified: 1777547587441
+      isPrivate: false
+      sortKey: -1777547247800
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_b260021c3f0f4419bbc813256bfa1dc8
+      - id: pair_bbb0c6fa0f7f422997305fd919fba742
+        name: X-User-Id
+        value: "1"
+        description: ID do Dr.Eggman
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/plans
+    name: Buscar um plano em específico (Requer autorização)
+    meta:
+      id: req_400d0692c65c49d4a513a1476a4f4ca8
+      created: 1777547701325
+      modified: 1777547701325
+      isPrivate: false
+      sortKey: -1777547247750
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_b260021c3f0f4419bbc813256bfa1dc8
+      - id: pair_bbb0c6fa0f7f422997305fd919fba742
+        name: X-User-Id
+        value: "1"
+        description: ID do Dr.Eggman
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/plans
+    name: Criar um novo plano (Requer autorização)
+    meta:
+      id: req_3692b831a8324a6bb9a72283720df4b4
+      created: 1777547719111
+      modified: 1777548570106
+      isPrivate: false
+      sortKey: -1777547247850
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "codeName": "Operation Catch-The-Hedgehog",
+          "description": "Build a  metalic replica to defeat the blue pest on Stadust Speedway.",
+          "rank": "EGG_MASTER",
+          "creator": {
+            "id": 1
+          },
+          "targets": [
+            { "id": 1 }
+          ]
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_2f8bbea689f646959aa5f3afc6118a22
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_b260021c3f0f4419bbc813256bfa1dc8
+      - id: pair_6c0d7612fe3d4738a48715b155cfe1bf
+        name: X-User-Id
+        value: "1"
+        description: ID do Dr.Eggman
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/plans/2
+    name: Atualizar dados em um plano (Requer autorização)
+    meta:
+      id: req_84654b5ab732457e904ea08555eff62c
+      created: 1777547993019
+      modified: 1777548626368
+      isPrivate: false
+      sortKey: -1777547247825
+    method: PUT
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "codeName": "Operation Catch-The-Hedgehog",
+          "description": "Build a  metalic replica to defeat the blue pest on Stadust Speedway, in-case of failure, start the lockdown protocol immediatly.",
+          "rank": "EGG_MASTER",
+          "creator": {
+            "id": 1
+          },
+          "targets": [
+            { "id": 1 }
+          ]
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_b260021c3f0f4419bbc813256bfa1dc8
+      - id: pair_bbb0c6fa0f7f422997305fd919fba742
+        name: X-User-Id
+        value: "1"
+        description: ID do Dr.Eggman
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/opponents
+    name: Buscar todos os oponentes
+    meta:
+      id: req_9d4cdb69a6354442815dfc3affff5050
+      created: 1777548061287
+      modified: 1777548500384
+      isPrivate: false
+      sortKey: -1777547247884.375
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/opponents
+    name: Adicionando um novo oponente
+    meta:
+      id: req_3fb9090b05514b0d9c82e69510702ee7
+      created: 1777548098613
+      modified: 1777548302300
+      isPrivate: false
+      sortKey: -1777547247887.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Sonic the Hedgehog",
+          "species": "Hedgehog",
+          "powers": "Super speed, Spin Dash, Homing Attack",
+          "age": 15,
+          "gender": "Male",
+          "personality": "Reckless, heroic likes chili dogs.",
+          "friends": "Tails, Knuckles, Amy Rose",
+          "weakness": "Water (Doesn't know how to swim)",
+          "level": "EXTREME",
+          "status": "ALIVE"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_f8983892d32543da9c30a1db6eb1ac28
+      - id: pair_55332619e8e64904bbefca08ec7fda15
+        name: X-User-Id
+        value: "1"
+        description: ID do Dr.Eggman
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/opponents/1
+    name: Atualizando dados de um oponente
+    meta:
+      id: req_c9370d53872246738dcc658602bb60b4
+      created: 1777548338190
+      modified: 1777548542671
+      isPrivate: false
+      sortKey: -1777547247881.25
+    method: PUT
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "name": "Sonic the Hedgehog",
+          "species": "Hedgehog",
+          "powers": "Super speed, Spin Dash, Homing Attack",
+          "age": 15,
+          "gender": "Male",
+          "personality": "Reckless, heroic likes chili dogs, and has a VERY bad sense of humor.",
+          "friends": "Tails, Knuckles, Amy Rose",
+          "weakness": "Water (Doesn't know how to swim)",
+          "level": "EXTREME",
+          "status": "ALIVE"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_8ddb195a1b6e446580f44da7bf778972
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_f8983892d32543da9c30a1db6eb1ac28
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/opponents/1/level
+    name: Atualizando nível de ameaça de um oponente (Nesse caso o Sonic)
+    meta:
+      id: req_d41c9b25b3934dbc975369c4b6d174f7
+      created: 1777548434045
+      modified: 1777548546702
+      isPrivate: false
+      sortKey: -1777547247878.125
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: '"EXTREME"'
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_0021ac9b0fc345469a315a0597bb4b37
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_f8983892d32543da9c30a1db6eb1ac28
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/opponents/1/status
+    name: Atualizando status de um oponente (Nesse caso o Sonic)
+    meta:
+      id: req_cb02facfe758484ea59eb4b2fa95aa95
+      created: 1777548476610
+      modified: 1777548549654
+      isPrivate: false
+      sortKey: -1777547247876.5625
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: '"CAPTURED"'
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_6007e9d3bad6437e9650408c0bbb15cf
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_f8983892d32543da9c30a1db6eb1ac28
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/opponents/1
+    name: Buscar um  oponente em específico
+    meta:
+      id: req_b7a0cbf1895f44e1b6c18c1993ef27bc
+      created: 1777548517457
+      modified: 1777548521374
+      isPrivate: false
+      sortKey: -1777547247882.8125
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/opponents/1
+    name: Deletar um oponente
+    meta:
+      id: req_032a7d33648447158776c7ca719cb5bf
+      created: 1777548581501
+      modified: 1777548598695
+      isPrivate: false
+      sortKey: -1777547247863.2812
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/plans/2
+    name: Deletar um plano (Requer autorização)
+    meta:
+      id: req_6087e2aea73e40fabb2746f158833f5f
+      created: 1777548652450
+      modified: 1777548657663
+      isPrivate: false
+      sortKey: -1777547247700
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_b260021c3f0f4419bbc813256bfa1dc8
+      - id: pair_bbb0c6fa0f7f422997305fd919fba742
+        name: X-User-Id
+        value: "1"
+        description: ID do Dr.Eggman
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_dd8a3d3fea792d25857a5bd578266d663c76495f
+    created: 1777547057056
+    modified: 1777547057056
+environments:
+  name: Base Environment
+  meta:
+    id: env_dd8a3d3fea792d25857a5bd578266d663c76495f
+    created: 1777547057055
+    modified: 1777547057055
+    isPrivate: false
